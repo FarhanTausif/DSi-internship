@@ -7,3 +7,12 @@
 [submodule "ToDo-svelte-hapi"]
 	path = ToDo-svelte-hapi
 	url = https://github.com/FarhanTausif/ToDo-svelte-hapi
+[submodule "Projects/ATS-plus"]
+	path = Projects/ATS-plus
+	url = https://github.com/FarhanTausif/ATS-plus
+[submodule "Projects/Learn-Spring-Boot"]
+	path = Projects/Learn-Spring-Boot
+	url = https://github.com/FarhanTausif/Learn-Spring-Boot
+[submodule "Projects/ToDo-svelte-hapi"]
+	path = Projects/ToDo-svelte-hapi
+	url = https://github.com/FarhanTausif/ToDo-svelte-hapi
