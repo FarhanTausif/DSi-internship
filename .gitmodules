@@ -1,0 +1,9 @@
+[submodule "ATS-plus"]
+	path = ATS-plus
+	url = https://github.com/FarhanTausif/ATS-plus
+[submodule "Learn-Spring-Boot"]
+	path = Learn-Spring-Boot
+	url = https://github.com/FarhanTausif/Learn-Spring-Boot
+[submodule "ToDo-svelte-hapi"]
+	path = ToDo-svelte-hapi
+	url = https://github.com/FarhanTausif/ToDo-svelte-hapi
