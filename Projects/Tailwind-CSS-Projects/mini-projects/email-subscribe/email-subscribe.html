@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Subscribe</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <main id="main-card" class="flex justify-center items-center bg-zinc-700 h-screen">
+        
+        <div id="outer-div" class="p-2 bg-zinc-800 rounded-2xl mx-6">
+            <div id="inner-div" class="flex flex-col md:flex-row">
+            
+                
+                <section id="card-image">
+                    <img class="object-fill h-80 md:h-64 w-full rounded-xl md:rounded-l-xl md:rounded-r-none hover:scale-105 hover:rounded-xl duration-200" src="images/image.jpg">
+                </section>
+
+                <section id="card-description" class="p-6 md:p-12">
+                    <h2 class="text-white text-center font-serif text-xl md:text-left">Get diet and fitness tips in your inbox</h2>
+                    <p class="text-xs text-center text-white max-w-xs leading-5 tracking-wide my-4 md:text-left">
+                        Eat better and exercise better. Sign up for the Diet&Fitness newsletter.
+                    </p>
+                    
+                    <div class="flex flex-col mt-5 md:flex-row">
+                        <input type="text" id="email" name="email" autocomplete="none"
+                            placeholder="Enter your email address" 
+                            class="text-white text-center md:text-left rounded-xs border border-zinc-600 bg-zinc-800 p-2 px-4 
+                            placeholder:text-xs placeholder:text-center md:placeholder:text-left focus:outline-none">
+                        <button type="submit" 
+                            class="bg-lime-500 rounded-md text-xs px-5 py-3 mt-4 md:mt-0 md:ml-3 md:border-none hover:bg-lime-700 hover:text-white hover:border-none duration-500"
+                        >   Subcribe
+                        </button>   
+                    </div>
+                </section>
+       
+            </div>
+        </div> 
+
+    </main>
+</body>
+</html>
