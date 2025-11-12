@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Cards</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Momo+Trust+Display&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .merriweather-regular {
+        font-family: "Merriweather", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .merriweather-strong {
+        font-family: "Merriweather", serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+        font-variation-settings: "wght" 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main
+      id="pricing-cards"
+      class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 py-5 justify-center items-center bg-slate-900 min-h-screen"
+    >
+    <!-- Card-1 -->
+      <div id="card-1" class="flex flex-col p-2 rounded-xl bg-slate-700">
+        <section class="bg-slate-900 text-white rounded-t-md px-5">
+          <h4 class="text-center mt-8">BASIC</h4>
+
+          <div
+            id="pricing"
+            class="flex flex-col mt-8 text-center justify-center items-center"
+          >
+            <p class="merriweather-regular text-4xl">100GB</p>
+            <p class="py-2">$1.99/Month</p>
+
+            <button
+              type="submit"
+              class="w-32 rounded-md text-sm text-center py-3 px-6 mt-4 mb-12 border border-violet-800"
+            >
+              Purchase
+            </button>
+          </div>
+        </section>
+
+          <div id="split-line" class="border-t-2 border-slate-700 w-full"></div>
+
+        <section class="bg-slate-900 text-white rounded-b-md px-5">
+          <div class="features mb-6">
+            <div class="flex flex-row text-center space-x-1 justify-center mt-2.5">
+              <div class="mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:space="preserve"
+                  id="tick"
+                  width="25"
+                  height="30"
+                  x="0"
+                  y="0"
+                  version="1.1"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    d="M223.9 329.7c-2.4 2.4-5.8 4.4-8.8 4.4s-6.4-2.1-8.9-4.5l-56-56 17.8-17.8 47.2 47.2L340 177.3l17.5 18.1-133.6 134.3z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-5 mb-0 text-sm">100 GB of storage</div>
+            </div>
+
+            <div class="flex flex-row text-center space-x-1">
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:space="preserve"
+                  id="tick"
+                  width="25"
+                  height="30"
+                  x="0"
+                  y="0"
+                  version="1.1"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    d="M223.9 329.7c-2.4 2.4-5.8 4.4-8.8 4.4s-6.4-2.1-8.9-4.5l-56-56 17.8-17.8 47.2 47.2L340 177.3l17.5 18.1-133.6 134.3z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-1 text-sm">Option to add members</div>
+            </div>
+
+            <div class="flex flex-row text-center space-x-1">
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:space="preserve"
+                  id="tick"
+                  width="25"
+                  height="30"
+                  x="0"
+                  y="0"
+                  version="1.1"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    d="M223.9 329.7c-2.4 2.4-5.8 4.4-8.8 4.4s-6.4-2.1-8.9-4.5l-56-56 17.8-17.8 47.2 47.2L340 177.3l17.5 18.1-133.6 134.3z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-1 text-sm">Extra member benefits</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Card 2 -->
+      <div id="card-2" class="flex flex-col p-2 rounded-xl bg-violet-600">
+        <section class="bg-slate-900 text-white rounded-t-md px-5">
+          <h4 class="text-center mt-8">STANDARD</h4>
+
+          <div
+            id="pricing"
+            class="flex flex-col mt-8 text-center justify-center items-center"
+          >
+            <p class="merriweather-regular text-4xl">200GB</p>
+            <p class="py-2">$3.99/Month</p>
+
+            <button
+              type="submit"
+              class="w-32 rounded-md text-sm text-center py-3 px-6 mt-4 mb-12 bg-violet-600 border border-violet-800"
+            >
+              Purchase
+            </button>
+          </div>
+        </section>
+
+          <div id="split-line" class="border-t-2 border-slate-700 w-full"></div>
+
+        <section class="bg-slate-900 text-white rounded-b-md px-5">
+          <div class="features mb-6">
+            <div class="flex flex-row text-center space-x-1 justify-center mt-2.5">
+              <div class="mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:space="preserve"
+                  id="tick"
+                  width="25"
+                  height="30"
+                  x="0"
+                  y="0"
+                  version="1.1"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    d="M223.9 329.7c-2.4 2.4-5.8 4.4-8.8 4.4s-6.4-2.1-8.9-4.5l-56-56 17.8-17.8 47.2 47.2L340 177.3l17.5 18.1-133.6 134.3z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-5 mb-0 text-sm">200 GB of storage</div>
+            </div>
+
+            <div class="flex flex-row text-center space-x-1">
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:space="preserve"
+                  id="tick"
+                  width="25"
+                  height="30"
+                  x="0"
+                  y="0"
+                  version="1.1"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    d="M223.9 329.7c-2.4 2.4-5.8 4.4-8.8 4.4s-6.4-2.1-8.9-4.5l-56-56 17.8-17.8 47.2 47.2L340 177.3l17.5 18.1-133.6 134.3z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-1 text-sm">Option to add members</div>
+            </div>
+
+            <div class="flex flex-row text-center space-x-1">
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:space="preserve"
+                  id="tick"
+                  width="25"
+                  height="30"
+                  x="0"
+                  y="0"
+                  version="1.1"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    d="M223.9 329.7c-2.4 2.4-5.8 4.4-8.8 4.4s-6.4-2.1-8.9-4.5l-56-56 17.8-17.8 47.2 47.2L340 177.3l17.5 18.1-133.6 134.3z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-1 text-sm">Extra member benefits</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Card-3-->
+       <div id="card-3" class="flex flex-col p-2 rounded-xl bg-slate-700">
+        <section class="bg-slate-900 text-white rounded-t-md px-5">
+          <h4 class="text-center mt-8">PREMIUM</h4>
+
+          <div
+            id="pricing"
+            class="flex flex-col mt-8 text-center justify-center items-center"
+          >
+            <p class="merriweather-regular text-4xl">2 TB</p>
+            <p class="py-2">$8.99/Month</p>
+
+            <button
+              type="submit"
+              class="w-32 rounded-md text-sm text-center py-3 px-6 mt-4 mb-12 border border-violet-800"
+            >
+              Purchase
+            </button>
+          </div>
+        </section>
+
+          <div id="split-line" class="border-t-2 border-slate-700 w-full"></div>
+
+        <section class="bg-slate-900 text-white rounded-b-md px-5">
+          <div class="features mb-6">
+            <div class="flex flex-row text-center space-x-1 justify-center mt-2.5">
+              <div class="mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:space="preserve"
+                  id="tick"
+                  width="25"
+                  height="30"
+                  x="0"
+                  y="0"
+                  version="1.1"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    d="M223.9 329.7c-2.4 2.4-5.8 4.4-8.8 4.4s-6.4-2.1-8.9-4.5l-56-56 17.8-17.8 47.2 47.2L340 177.3l17.5 18.1-133.6 134.3z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-5 mb-0 text-sm">2 TB of storage</div>
+            </div>
+
+            <div class="flex flex-row text-center space-x-1">
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:space="preserve"
+                  id="tick"
+                  width="25"
+                  height="30"
+                  x="0"
+                  y="0"
+                  version="1.1"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    d="M223.9 329.7c-2.4 2.4-5.8 4.4-8.8 4.4s-6.4-2.1-8.9-4.5l-56-56 17.8-17.8 47.2 47.2L340 177.3l17.5 18.1-133.6 134.3z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-1 text-sm">Option to add members</div>
+            </div>
+
+            <div class="flex flex-row text-center space-x-1">
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xml:space="preserve"
+                  id="tick"
+                  width="25"
+                  height="30"
+                  x="0"
+                  y="0"
+                  version="1.1"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    d="M223.9 329.7c-2.4 2.4-5.8 4.4-8.8 4.4s-6.4-2.1-8.9-4.5l-56-56 17.8-17.8 47.2 47.2L340 177.3l17.5 18.1-133.6 134.3z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-1 text-sm">Extra member benefits</div>
+            </div>
+          </div>
+        </section>
+      </div>
+      
+    </main>
+  </body>
+</html>
