@@ -1,3 +1,8 @@
 :root {
     font-family: "Poppins", sans-serif;
 }
+
+#socials-icons img:hover {
+    cursor: pointer;
+    filter: invert(79%) sepia(61%) saturate(464%) hue-rotate(130deg) brightness(89%) contrast(85%);
+}
