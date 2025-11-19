@@ -7,36 +7,42 @@
     <link rel="icon" href="images/favicon-32x32.png" />
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="script.js" defer></script>
 </head>
 <body>
-    <section class="hero-section p-6 xl:px-32">
+    <section id="hero-section" class="p-6 xl:px-32">
         <nav 
-            class ="navbar container flex flex-row justify-between mx-auto lg:mx-15 items-center"
+            class ="navbar container flex flex-row justify-between mx-auto items-center"
         >   
-            <div class="nav-list flex flex-row items-center lg:justify-between lg:w-full lg:pr-20">
+            <div id="nav-list-pc" class="nav-list flex flex-row items-center lg:justify-between lg:w-full">
                 <div class="flex flex-row items-center justify-between space-x-20">
-                    <img class="shortly-logo" src="images/logo.svg" alt="shortly-logo">
+                    <img id="shortly-logo" src="images/logo.svg" alt="shortly-logo">
                     <div class="hidden lg:justify-between lg:flex">
                         <a href="#" class="text-gray-400 font-bold mx-4 hover:text-black">Features</a>
                         <a href="#" class="text-gray-400 font-bold mx-4 hover:text-black">Pricing</a>
                         <a href="#" class="text-gray-400 font-bold mx-4 hover:text-black">Resources</a>
                     </div>
                 </div>
-                <div class="registration hidden lg:flex lg:items-center">
-                    <a href="#" class="text-gray-400 font-bold mx-4 hover:text-black cursor-auto">Login</a>
-                    <button class="bg-cyan-400 rounded-full text-white text-md font-bold px-6 py-2 mx-4 hover:bg-cyan-300 cursor-pointer">Sign Up</button>
+                <div id="registration" class="hidden lg:flex lg:items-center lg: gap-4">
+                    <a href="#" class="text-gray-400 font-bold  hover:text-black cursor-auto">Login</a>
+                    <button class="bg-cyan-400 rounded-full text-white text-md font-bold px-6 py-2 hover:bg-cyan-300 cursor-pointer">Sign Up</button>
                 </div>         
             </div>
             <!-- hamburger button icon -->
 
-            <img
-                class="hamburger-menu lg:hidden" 
-                src="images/hamburger-menu-mobile.svg" alt="hamburger-menu-icon" width="35px"
+            <img    
+                class="hamburger-menu w-10 lg:hidden" 
+                src="images/hamburger-menu-mobile.svg" alt="hamburger-menu-icon"
             />   
         </nav>
 
-        <div id="nav-list" class="absolute right-6 md:right-12 hidden container mt-6 p-6 rounded-md bg-violet-950 w-[90%] text-center font-bold flex flex-col space-y-5 z-100">
+        <div id="nav-list" class="absolute right-6 left-6 hidden mt-6 p-6 rounded-md bg-violet-950 text-center font-bold flex flex-col space-y-5 z-100"> 
             <a href="#" class="text-white font-bold">Features</a>
             <a href="#" class="text-white font-bold">Pricing</a>
             <a href="#" class="text-white font-bold border-b border-gray-400 pb-5">Resources</a>
@@ -48,10 +54,10 @@
         <div class="flex flex-col lg:flex-row-reverse">
             <img 
                 src="images/illustration-working.svg" alt="hero-image"
-                class="hero-image flex justify-center mt-10 md:w-150 lg:w-1/2 lg:h-1/2 mx-auto md: -mt-15"
+                id="hero-image" class="flex justify-center mt-10 md:w-150 lg:w-1/2 lg:h-1/2 mx-auto md: -mt-15"
             />    
 
-            <div class="hero-content mt-22 lg:mt-35 lg:mx-15 mx-auto max-w-md md:max-w-none">
+            <div id="hero-content" class="mt-22 lg:mt-35 lg:mx-15 mx-auto max-w-md md:max-w-none">
                 <h1 class="text-5xl lg:text-6xl font-bold md:max-w-full lg:max-w-md text-black text-center lg:text-left leading-11 lg:leading-15">More than just shorter links</h1>
 
                 <p class="mt-12 text-2xl max-w-md text-gray-400 text-center lg:text-left mx-auto leading-8 ">
@@ -68,26 +74,26 @@
         </div>
     </section>
 
-    <section class="description mt-42 px-5 lg:px-30 bg-gray-100 mx-auto pb-32 md:mt-30 lg:mt-20 xl:mt-25 2xl:mt-30">  
-        <div id="shortened-link-container" class="container mx-auto lg:mx-30 lg:w-3/4 2xl:w-1/2 2xl:mx-auto">
+    <section id="description" class="mt-42 px-5 lg:px-30 bg-gray-100 mx-auto pb-32 md:mt-30 lg:mt-20 xl:mt-25 2xl:mt-30">  
+        <div id="shortened-link-container" class="container mx-auto lg:w-5/6 2xl:w-1/2">
             <div id="link-shortener" class="relative -top-15 bg-violet-950 rounded-xl">
-                <div
+                <form
                     class="flex flex-col md:flex-row justify-center items-center p-10 space-y-4 md:space-y-0 md:space-x-4 md:px-2"
                 >
                     <input 
                         type="text"
                         placeholder="Shorten a link here"
-                        class="bg-white text-md text-orange-500 rounded-md w-full p-3 border border-indigo-300 outline-gray-400 focus:outline-none placeholder:text-left md:w-3/4">
+                        class="bg-white text-md text-orange-500 rounded-md w-full p-3 border border-indigo-300 outline-gray-400 focus:outline-none placeholder:text-left focus:placeholder:text-orange-500 focus:text-black md:w-3/4">
                     </input>
                     <button
-                        class="bg-cyan-400 w-full p-3 rounded-md text-center text-white text-md md:w-auto md:px-6"
+                        class="bg-cyan-400 w-full p-3 rounded-md text-center text-white text-md md:w-auto md:px-6 hover:cursor-pointer hover:bg-cyan-300"
                     >
                         Shorten It!
                     </button>
-                </div>
+                </form>
             </div>
 
-            <div class="shortening-cards -mt-5 space-y-6">
+            <div id="shortening-cards" class=" -mt-5 space-y-6">
                 
                 <div id="card-1" class="flex flex-col justify-between items-center bg-white rounded-md p-6 md:flex-row md:space-x-5">
                     <p
@@ -102,7 +108,7 @@
                             https://rel.ink/k4lKyk
                         </p>
                         <button
-                            class="bg-cyan-400 py-2 px-8 mt-2 rounded-md text-center text-white text-md md:mt-0"
+                            class="bg-cyan-400 py-2 px-8 mt-2 rounded-md text-center text-white text-md md:mt-0 hover:cursor-pointer hover:bg-cyan-300"
                         >
                         Copy
                     </button>
@@ -122,7 +128,7 @@
                             https://rel.ink/gxOXp9
                         </p>
                         <button
-                            class="bg-indigo-950 py-2 px-8 mt-2 rounded-md text-center text-white text-md md:mt-0"
+                            class="bg-indigo-950 py-2 px-8 mt-2 rounded-md text-center text-white text-md md:mt-0 hover:cursor-pointer hover:bg-indigo-900"
                         >
                         Copy
                     </button>
@@ -142,7 +148,7 @@
                             https://rel.ink/gob3X9
                         </p>
                         <button
-                            class="bg-cyan-400 py-2 px-8 mt-2 rounded-md text-center text-white text-md md:mt-0"
+                            class="bg-cyan-400 py-2 px-8 mt-2 rounded-md text-center text-white text-md md:mt-0 hover:cursor-pointer hover:bg-cyan-300"
                         >
                         Copy
                     </button>
@@ -152,14 +158,14 @@
         </div>
         
 
-        <section class="statistics mt-25">
+        <section id="statistics" class="relative mt-25">
 
             <h1 class="text-4xl font-bold text-black text-center">Advanced Statistics</h1>
             <p class="mt-5 max-w-xs md:max-w-md mx-auto text-lg text-gray-400 text-center leading-6">
                 Track how your links are performing across the web with our advanced statistics dashboard.
             </p>
 
-            <div class="horizontal-line hidden absolute right-[30%] mt-60 md:block bg-cyan-400 md:w-100 lg:w-120 xl:w-170 2xl:w-180 h-2"></div>
+            <div id="horizontal-line" class="hidden absolute right-[30%] top-90 md:block bg-cyan-400 md:w-100 lg:w-110 xl:w-150 2xl:w-180 h-3"></div>
 
             <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8 mt-15 px-6 md:px-4 mx-auto md:mx-20">
                 
@@ -176,7 +182,7 @@
             </div>
             
             <div 
-                class="vertical-line bg-cyan-400 w-2 h-15 mx-auto md:hidden">
+                id="vertical-line" class="bg-cyan-400 w-3 h-15 mx-auto md:hidden">
             </div>
 
             <div id="detailed-records" class="bg-white rounded-md mt-5 md:p-6 md:w-full md:mt-15 z-1000 md:w-1/3">
@@ -185,14 +191,14 @@
                 </div>
                 <h2 class="text-xl font-bold text-black text-center md:text-left">Detailed Records</h2>
                 <p 
-                    class="mt-5 text-gray-400 text-center px-10 pb-6 md:text-left md:px-0 md:text-sm"
+                    class="mt-5 text-gray-400 text-center px-10 pb-6 md:text-left md:px-0 md:text-md"
                 >
                     Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.
                 </p>
             </div>
 
             <!-- vertical line -->
-            <div class="vertical-line bg-cyan-400 w-2 h-15 mx-auto md:hidden"></div>
+            <div id="vertical-line-2" class="bg-cyan-400 w-3 h-15 mx-auto md:hidden"></div>
 
             <div id="fully-customizable" class="bg-white rounded-md mt-5  md:p-6 md:w-full md:mt-30 z-1000 md:w-1/3">
                 <div class="relative -top-10 md:-top-15 md:right-20 lg:right-15 xl:right-18 2xl:right-45 rounded-full bg-black w-20 h-20 mx-auto">
@@ -209,42 +215,46 @@
         </section>
     </section>
 
-    <section class="boost-section bg-[url('images/bg-boost-desktop.svg')] overflow-hidden bg-indigo-950 bg-cover py-25">
-        <h2 class="text-4xl font-bold text-white text-center">Boost your links today</h2>
+    <section id="boost-section" class="bg-[url('images/bg-boost-desktop.svg')] overflow-hidden bg-indigo-950 bg-cover py-25">
+        <h2 class="text-4xl font-bold text-white text-center mx-auto px-10 md:px-0">Boost your links today</h2>
         <div class="flex justify-center mt-6">
             <button class="bg-cyan-400 rounded-full text-white text-md font-bold px-12 py-3 cursor-pointer hover:bg-cyan-300">Get Started</button>
         </div>
     </section>
 
-    <section class ="footer-section bg-black font-sans pb-5">
-        <div class="flex flex-col md:flex-row items-center md:justify-between md:items-start mx-auto py-10 space-y-10 md:space-y-0 md:px-2 md:py-20  lg:justify-center lg:space-x-40 xl:space-x-60">
-            <div class="logo flex justify-center">
+    <section id="footer-section" class="bg-black font-sans py-5">
+
+        <div class="flex flex-col md:flex-row items-center justify-between md:items-start mx-auto py-10 space-y-10 md:space-y-0 md:px-20 xl:px-32 2xl:px-48">
+            <div id="logo" class="flex justify-center">
                 <img src="images/logo.svg" alt="logo" />
             </div>
             
-            <div class="features flex flex-col items-center space-y-2 tracking-tight md:items-start">
-                <h5 class="text-white font-bold">Features</h5>
-                <p class="text-gray-400 hover:text-cyan-400 cursor-pointer">Link Shortening</p>
-                <p class="text-gray-400 hover:text-cyan-400 cursor-pointer">Branded Links</p>
-                <p class="text-gray-400 hover:text-cyan-400 cursor-pointer">Analytics</p>
+            <div class="flex flex-col md:flex-row md:justify-between gap-20">
+
+                <div id="features" class="flex flex-col items-center space-y-2  md:items-start text-xs">
+                    <h5 class="text-white font-bold mb-8">Features</h5>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 cursor-pointer max-w-md">Link Shortening</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 cursor-pointer">Branded Links</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 cursor-pointer">Analytics</a>
+                </div>
+                
+                <div id="resources" class="flex flex-col items-center space-y-2 tracking-tight md:items-start">
+                    <h5 class="text-white font-bold mb-8">Resources</h5>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 cursor-pointer">Blog</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 cursor-pointer">Developers</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 cursor-pointer">Support</a>
+                </div>
+                
+                <div id="company" class="flex flex-col items-center space-y-2 tracking-tight leading-tighter md:items-start">
+                    <h5 class="text-white font-bold mb-8">Company</h5>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 cursor-pointer">About</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 cursor-pointer">Our Team</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 cursor-pointer">Careers</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 cursor-pointer">Contact</a>
+                </div>
             </div>
             
-            <div class="resources flex flex-col items-center space-y-2 tracking-tight md:items-start">
-                <h5 class="text-white font-bold">Resources</h5>
-                <p class="text-gray-400 hover:text-cyan-400 cursor-pointer">Blog</p>
-                <p class="text-gray-400 hover:text-cyan-400 cursor-pointer">Developers</p>
-                <p class="text-gray-400 hover:text-cyan-400 cursor-pointer">Support</p>
-            </div>
-            
-            <div class="company flex flex-col items-center space-y-2 tracking-tight md:items-start">
-                <h5 class="text-white font-bold">Company</h5>
-                <p class="text-gray-400 hover:text-cyan-400 cursor-pointer">About</p>
-                <p class="text-gray-400 hover:text-cyan-400 cursor-pointer">Our Team</p>
-                <p class="text-gray-400 hover:text-cyan-400 cursor-pointer">Careers</p>
-                <p class="text-gray-400 hover:text-cyan-400 cursor-pointer">Contact</p>
-            </div>
-            
-            <div class="socials flex flex-row space-x-5 justify-center">
+            <div id="socials-icons" class="flex flex-row space-x-5 justify-center">
                 <img src="images/icon-facebook.svg" alt="facebook-icon" />
                 <img src="images/icon-twitter.svg" alt="twitter-icon" />
                 <img src="images/icon-pinterest.svg" alt="pinterest-icon" />
