@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
-:root {
-    font-family: "Poppins", sans-serif;
+@theme {
+  --font-sans: Poppins, sans-serif;
 }
+
+/* 
+    why @theme instead of :root?
+    - tailwindcss doesn't support custom fonts in :root directly
+*/
+
+/* :root {
+    font-family: "Poppins", sans-serif;
+} */
 
 #socials-icons img:hover {
     cursor: pointer;
