@@ -2,6 +2,10 @@
 
 A simple, functional todo application built with **Svelte 5** and **Vite** as part of a 5-day Svelte learning journey.
 
+## 📸 Demo
+
+![Todo App Demo](todo-app-svelte.gif)
+
 ## 🎯 Features
 
 - ✅ **Add todos** - Create new tasks with Enter key or button click
