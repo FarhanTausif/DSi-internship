@@ -11,10 +11,14 @@
 
   let nextTodo = $state("");
   let nextTodoId = $state(3);
+  let hasEmptyTodoError = $state(false);
 
   function addTodo() {
-    // prevent adding empty todos
-    if (nextTodo.trim() === "") return;
+    // prevent adding empty todos, show error state
+    if (nextTodo.trim() === "") {
+      hasEmptyTodoError = true;
+      return;
+    }
 
     todos.push({
       id: nextTodoId,
@@ -24,6 +28,7 @@
     });
     nextTodoId += 1;
     nextTodo = "";
+    hasEmptyTodoError = false;
   }
 
   function editTodo(id, newText) {
@@ -53,9 +58,10 @@
   <div id="add-todo">
     <input
       id="todo-input"
+      class={hasEmptyTodoError ? "error" : ""}
       type="text"
       bind:value={nextTodo}
-      placeholder="What needs to be done?"
+      placeholder={hasEmptyTodoError ? "Please enter a todo" : "Add a todo"}
       onkeydown={(event) => event.key === "Enter" && addTodo()}
     />
     <button id="add-btn" onclick={addTodo}>
@@ -75,20 +81,38 @@
       <span>Pending Todos: {pendingTodos}</span>
     </div>
     <ul id="todo-list">
-			<!-- why (todo.id) 
+      <!-- why (todo.id) 
 				- helps Svelte track each item uniquely for efficient updates
 				- improves performance during re-renders
 				- prevents unnecessary DOM manipulations 
+
+        if no (todo.id) what would happen?
+        - Svelte may have to re-render the entire list on any change, leading to performance issues
 			-->
       {#each todos as todo (todo.id)}
-        <li class:completed={todo.completed}>
-					<!-- class:completed?? what is this?
+        <!-- <li class:completed={todo.completed}>
+          -->
+        <li class={todo.completed && "completed"}>
+          <!-- class:completed?? what is this?
 					 - Dynamic class binding in Svelte
 					 Explain Dynamic class binding 
 					 - It allows you to conditionally apply a CSS class based on a boolean expression	
 					 - Adds the "completed" CSS class to the <li> element when todo.completed is true
 					 -->
+          <!-- what could be an alternative to class:completed={todo.completed}?
+            li class={todo.completed ? 'completed' : ''}>
+            
+            Or,
+
+            <li class="{todo.completed && 'completed'}">
+           -->
           <input type="checkbox" bind:checked={todo.completed} />
+          <!-- this binding with the checkbox and todo.completed does what?
+                - It creates a two-way binding between the checkbox's checked state and the todo.completed property.
+                - When the checkbox is checked or unchecked, it automatically updates the todo.completed property.
+                - Conversely, if the todo.completed property changes programmatically, the checkbox will reflect that change.
+           
+          -->
           <span>{todo.text}</span>
           <span>{todo.createdAt.toLocaleString()}</span>
           <button
@@ -97,6 +121,8 @@
               const newText = prompt("Edit todo:", todo.text);
               if (newText !== null && newText.trim() !== "") {
                 editTodo(todo.id, newText.trim());
+              } else {
+                alert("Todo text cannot be empty.");
               }
             }}
           >
@@ -147,6 +173,11 @@
     font-size: x-large;
     border: none;
     outline: 3px solid #ff7b00;
+  }
+
+  #todo-input.error::placeholder {
+    color: red;
+    font-weight: bold;
   }
 
   button {
