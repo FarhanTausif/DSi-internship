@@ -4,7 +4,7 @@ A simple, functional todo application built with **Svelte 5** and **Vite** as pa
 
 ## 📸 Demo
 
-![Todo App Demo](todo-app-svelte.gif)
+![Todo App Demo](todo-with-svelte.gif)
 
 ## 🎯 Features
 

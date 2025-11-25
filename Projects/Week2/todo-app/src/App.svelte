@@ -34,6 +34,10 @@
   let nextTodoId = $state(loadNextTodoId());
   let hasEmptyTodoError = $state(false);
 
+  // what happening here?
+  // -- This effect runs whenever the 'todos' or 'nextTodoId' state changes.
+  // -- It saves the current state of 'todos' and 'nextTodoId' to localStorage,
+  // -- ensuring that the data persists across page reloads. 
   $effect(()=> {
     localStorage.setItem('todos', JSON.stringify(todos));
     localStorage.setItem('nextTodoId', nextTodoId.toString());
@@ -92,7 +96,7 @@
     />
     <button id="add-btn" onclick={addTodo}>
       <!-- Add Icon -->
-       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="#fff" d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5v2H5v14h14v-5z" stroke-width="32" /><path fill="#fff" d="M21 7h-4V3h-2v4h-4v2h4v4h2V9h4z"/></svg>
+       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32"><path fill="#fff" d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5v2H5v14h14v-5z" stroke-width="32" /><path fill="#fff" d="M21 7h-4V3h-2v4h-4v2h4v4h2V9h4z"/></svg>
     </button>
   </div>
 
@@ -139,7 +143,7 @@
                 - Conversely, if the todo.completed property changes programmatically, the checkbox will reflect that change.
            
           -->
-          <span>{todo.text}</span>
+          <span id="todo-text">{todo.text}</span>
           <span>{todo.createdAt.toLocaleString()}</span>
           <button
             id="edit-btn"
@@ -165,7 +169,7 @@
   {/if}
 
   <div id="timer">
-    <p>Current time: {time}</p>
+    <p>{time}</p>
   </div>
 </main>
 
@@ -177,8 +181,10 @@
   }
 
   h1 {
+    font-family: 'assets/Science_Gothic/static/Condensed-Black.ttf', 'Courier New', Courier, monospace;
     text-align: center;
     color: #ff3e00;
+    line-height: 0%;
   }
 
   #add-todo {
@@ -191,6 +197,8 @@
   #todo-input {
     flex: 1;
     padding: 1.5rem;
+    font-family: 'poppins', monospace;
+    font-weight: bold;
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -201,28 +209,27 @@
     border: none;
     outline: none;
   }
-
+  
   #todo-input.error::placeholder {
     color: red;
     font-weight: bold;
   }
-
+  
   button {
     cursor: pointer;
   }
-
+  
   #add-btn {
     border: none;
     background: none;
     margin-left: -10px; 
     position: absolute; 
-    right:-35px; 
-    top: -25px;
-    z-index:10;
+    right: 6px; 
+    top: 15px;
   }
-  
+
   #add-btn:hover {
-    color: green;
+    fill-opacity: 0.5;
   }
 
   #stats {
@@ -241,6 +248,11 @@
     list-style-type: none;
     padding: 0;
     margin-top: 2rem;
+  }
+  
+  #todo-text {
+    word-break: break-word;
+    text-wrap: wrap;
   }
 
   li {
@@ -303,12 +315,186 @@
     position: fixed;
     font-family: "assets/digital-7 (mono).ttf", monospace;
     bottom: 1rem;
-    right: 1rem;
-    background: #ff3e00;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    font-size: large;
+    font-size: larger;
     font-weight: bold;
     padding: 0.5rem 1rem;
     border-radius: 0.75rem;
+  }
+
+
+
+  /* Responsive Design - Tablet */
+  @media (max-width: 768px) {
+    main {
+      width: 90%;
+      padding: 0.75em;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    #todo-input {
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+
+    #add-btn {
+      right: 5px;
+      top: 8px;
+    }
+
+    #add-btn svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    #stats {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem;
+      font-size: small;
+    }
+
+    #stats span:nth-child(even) {
+      display: none; /* Hide separator | on smaller screens */
+    }
+
+    li {
+      padding: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    li span:last-of-type {
+      width: 100%;
+      font-size: 0.85rem;
+      margin-left: 2rem;
+    }
+
+    #edit-btn svg,
+    #delete-btn svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    #timer {
+      font-size: medium;
+    }
+  }
+
+  /* Responsive Design - Mobile */
+  @media (max-width: 480px) {
+    main {
+      width: 95%;
+      padding: 0.5em;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    #add-todo {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #todo-input {
+      padding: 0.85rem;
+      font-size: 0.9rem;
+    }
+
+    #add-btn {
+      position: absolute;
+      right: 6px;
+      top: 8px;
+    }
+
+    #add-btn svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    #stats {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    li {
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    li span:first-of-type {
+      flex: 2;
+    }
+
+    li span:last-of-type {
+      font-size: 0.75rem;
+      margin-left: 1.5rem;
+    }
+
+    #edit-btn {
+      margin-right: 0.5rem;
+    }
+
+    #edit-btn svg,
+    #delete-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    #timer {
+      font-size: small;
+      padding: 0.3rem 0.6rem;
+    }
+
+    #timer p {
+      font-size: 0.85rem;
+    }
+  }
+
+  /* Responsive Design - Very Small Mobile */
+  @media (max-width: 360px) {
+    h1 {
+      font-size: 1.25rem;
+    }
+
+    #todo-input {
+      font-size: 0.85rem;
+      padding: 0.75rem;
+    }
+
+    #stats {
+      font-size: 0.8rem;
+      padding: 0.5rem 0.75rem;
+    }
+
+    li {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    li span:last-of-type {
+      font-size: 0.7rem;
+    }
+
+    #edit-btn svg,
+    #delete-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    #timer {
+      font-size: x-small;
+    }
+
+    #timer p {
+      font-size: 0.75rem;
+    }
   }
 </style>
