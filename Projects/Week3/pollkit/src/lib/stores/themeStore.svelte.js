@@ -1,27 +1,39 @@
-// It initializes the theme based on localStorage or defaults to 'light'
-let theme = $state(
-    typeof window !== "undefined"
+// Theme state using $state for reactivity
+let themeState = $state({
+    current: typeof window !== "undefined"
         ? localStorage.getItem("theme") || "light"
         : "light"
-);
+});
 
 export function getTheme() {
-    return theme;
+    return themeState.current;
 }
 
 export function toggleTheme() {
-    // Toggles between 'light' and 'dark' themes and updates localStorage and document class
-    theme = (theme === "light") ? "dark" : "light";
+    // Toggle between 'light' and 'dark'
+    themeState.current = themeState.current === "light" ? "dark" : "light";
+    
     if(typeof window !== "undefined") {
-        localStorage.setItem("theme", theme);
-        // If the theme is 'dark', it adds the 'dark' class; if it's 'light', it removes it.
-        document.documentElement.classList.toggle('dark', theme === 'dark')
+        // Save to localStorage
+        localStorage.setItem("theme", themeState.current);
+        
+        // Update document class
+        if (themeState.current === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
     }
 }
 
-export function initializeTheme(){
+export function initializeTheme() {
     if(typeof window !== "undefined") {
-        document.documentElement.classList.toggle('dark', theme === 'dark')
+        // Apply theme on initialization
+        if (themeState.current === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
     }
 }
 
