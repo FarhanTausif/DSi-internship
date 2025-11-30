@@ -1,4 +1,4 @@
-let polls = $state([
+let pollsData = $state([
     {
         id: 1,
         question: "What is your favorite framework?",
@@ -15,20 +15,39 @@ let polls = $state([
 
 let selectedPoll = $state(null);
 
-// Derived stats
-let totalPolls = $derived(polls.length);
+// Derived stats as internal reactive values
+let totalPolls = $derived(pollsData.length);
 let totalVotes = $derived(
-    polls.reduce((sum, poll) => sum + poll.totalVotes, 0)
+    pollsData.reduce((sum, poll) => sum + poll.totalVotes, 0)
+);
+let averageVotesPerPoll = $derived(
+    pollsData.length > 0 ? (totalVotes / pollsData.length).toFixed(1) : '0.0'
 );
 
-// Functions to interact with the poll store
-
+// Export polls through a getter function
 export function getPolls() {
-    return polls;
+    return pollsData;
+}
+
+// Export derived stats through getter functions
+export function getTotalPolls() {
+    return totalPolls;
+}
+
+export function getTotalVotes() {
+    return totalVotes;
+}
+
+export function getAverageVotesPerPoll() {
+    return averageVotesPerPoll;
 }
 
 export function getStats() {
-    return {totalPolls, totalVotes};
+    return {
+        totalPolls: totalPolls,
+        totalVotes: totalVotes,
+        averageVotesPerPoll: averageVotesPerPoll
+    };
 }
 
 export function addPoll(question, options) {
@@ -44,11 +63,11 @@ export function addPoll(question, options) {
         totalVotes: 0,
     };
 
-    polls = [newPoll, ...polls];
+    pollsData = [newPoll, ...pollsData];
 }
 
 export function vote(pollId, optionId) {
-    const poll = polls.find(p => p.id === pollId);
+    const poll = pollsData.find(p => p.id === pollId);
     if(poll) {
         const option = poll.options.find(o => o.id === optionId);
         if(option) {
@@ -59,7 +78,7 @@ export function vote(pollId, optionId) {
 }
 
 export function deletePoll(pollId) {
-  polls = polls.filter(p => p.id !== pollId);
+  pollsData = pollsData.filter(p => p.id !== pollId);
 }
 
 export function selectPoll(poll) {
