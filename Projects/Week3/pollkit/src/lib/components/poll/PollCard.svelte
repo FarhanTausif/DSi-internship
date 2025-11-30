@@ -74,7 +74,7 @@
     {#if hasVoted}
         <div class="mt-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
             <p class="text-sm text-green-700 dark:text-green-400 text-center font-medium">
-                ✓ Thank you for voting!
+                Thank you for voting!
             </p>
         </div>
     {:else}
