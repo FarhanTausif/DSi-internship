@@ -1,0 +1,14 @@
+{
+  "name": "svelte5-mcp-server",
+  "description": "A MCP server as a Svelte 5 documentation helper",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "latest",
+    "zod": "^4.1.13"
+  }
+}
